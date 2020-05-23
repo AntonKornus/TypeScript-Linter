@@ -17,6 +17,7 @@ jobs:
         uses: AntonKornus/TypeScript-Linter@master
         with:
           pattern: '*.ts'
+          config: 'tslint.json'
       - name: Linter result
         run: echo "Result ${{ steps.linter.outputs.result }}"
 ```

@@ -5,7 +5,8 @@ const fs = require("fs");
 
 try {
     const lintAction = (() => {
-        const pattern = core.getInput("pattern");
+        const configFile = core.getInput('config')
+        const pattern = core.getInput('pattern');
         const files = glob.sync(pattern);
         console.log('Found ' + files.length + ' files.');
 
@@ -14,8 +15,8 @@ try {
         files.map(file => {
             console.log('Checking: ' + file);
             const fileContent = fs.readFileSync(file, {encoding: 'utf8'});
-            const config = tsLinter.Configuration.findConfiguration('tslint.json', file).results;
-            linter.lint(file, fileContent, config);
+            const configuration = tsLinter.Configuration.findConfiguration(configFile, file).results;
+            linter.lint(file, fileContent, configuration);
         });
         return linter.getResult();
     })();

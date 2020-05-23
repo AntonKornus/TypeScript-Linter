@@ -4,6 +4,9 @@ inputs:
   pattern:
     description: 'Files pattern to match'
     required: true
+  config:
+    description: 'Config file path'
+    required: true
 outputs:
   result: # id of output
     description: 'Linter result'
