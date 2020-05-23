@@ -1,0 +1,8 @@
+name: 'TypeScript Linter Action'
+description: 'Action for typescript check'
+outputs:
+  result: # id of output
+    description: 'Linter result'
+runs:
+  using: 'node12'
+  main: 'index.js'

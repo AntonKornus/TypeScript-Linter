@@ -1,0 +1,27 @@
+{
+  "name": "typescript-linter",
+  "version": "1.0.0",
+  "description": "typescript linter action",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonKornus/TypeScript-Linter.git"
+  },
+  "author": "Anton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AntonKornus/TypeScript-Linter/issues"
+  },
+  "homepage": "https://github.com/AntonKornus/TypeScript-Linter#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^2.2.0",
+    "glob": "^7.1.6",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3"
+  }
+}
