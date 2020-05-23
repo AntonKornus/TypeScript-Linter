@@ -9,6 +9,6 @@ jobs:
           fetch-depth: 1
       - name: Linter action
         id: linter
-        uses: AntonKornus/TypeScript-Linter@master
+        uses: AntonKornus/TypeScript-Linter@v1
       - name: Linter result
         run: echo "Result ${{ steps.linter.outputs.result }}"
