@@ -29,7 +29,11 @@ try {
             position: failure.getStartPosition().getLineAndCharacter()
         });
     });
-    core.setOutput('result', result);
+
+    if (result.length) {
+        core.setFailed();
+        core.setOutput('result', result);
+    }
 } catch (error) {
     core.setFailed(error.message);
 }
