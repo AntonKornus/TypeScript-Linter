@@ -15,6 +15,8 @@ jobs:
       - name: Linter action
         id: linter
         uses: AntonKornus/TypeScript-Linter@master
+        with:
+          pattern: '*.ts'
       - name: Linter result
         run: echo "Result ${{ steps.linter.outputs.result }}"
 ```

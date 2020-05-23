@@ -1,5 +1,9 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
+inputs:
+  pattern:
+    description: 'Files pattern to match'
+    required: true
 outputs:
   result: # id of output
     description: 'Linter result'

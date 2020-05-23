@@ -5,10 +5,11 @@ const fs = require("fs");
 
 try {
     const lintAction = (() => {
-        const options = {fix: false, formatter: 'json'};
-        const files = glob.sync('*.ts');
+        const pattern = core.getInput("pattern");
+        const files = glob.sync(pattern);
         console.log('Found ' + files.length + ' files.');
 
+        const options = {fix: false, formatter: 'json'};
         const linter = new tsLinter.Linter(options);
         files.map(file => {
             console.log('Checking: ' + file);
