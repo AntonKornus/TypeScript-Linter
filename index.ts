@@ -18,7 +18,6 @@ try {
             const configuration = tsLinter.Configuration.findConfiguration(configFile, file).results;
             linter.lint(file, fileContent, configuration);
         });
-        console.log(linter.getResult());
         return linter.getResult();
     })();
 
@@ -33,6 +32,7 @@ try {
     });
 
     if (result.length) {
+        console.log('Total amount of errors: ' + lintAction.errorCount);
         console.log(result);
         core.setFailed();
     }
