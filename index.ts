@@ -1,5 +1,5 @@
+import * as core from '@actions/core';
 const path = require('path');
-const core = require('@actions/core');
 const tsLinter = require('tslint');
 
 try {
@@ -38,7 +38,7 @@ try {
     if (result.length) {
         console.log('Total amount of errors: ' + linterAction.errorCount);
         console.log(result);
-        core.setFailed();
+        core.setFailed('Linter found errors.');
     }
 } catch (error) {
     core.setFailed(error.message);
