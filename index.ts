@@ -1,5 +1,4 @@
-import * as path from 'path';
-
+const path = require('path');
 const core = require('@actions/core');
 const tsLinter = require('tslint');
 
