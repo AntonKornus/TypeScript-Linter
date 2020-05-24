@@ -1,27 +1,28 @@
 const core = require('@actions/core');
-const tsLinter = require("tslint");
+const tsLinter = require('tslint');
 const glob = require("glob");
-const fs = require("fs");
+const fs = require('fs');
 
 try {
     const lintAction = (() => {
-        const configFile = core.getInput('config')
-        const pattern = core.getInput('pattern');
-        const files = glob.sync(pattern);
+        const configFile: string = core.getInput('config');
+        const pattern: string = core.getInput('pattern');
+        const files: Array<string> = glob.sync(pattern);
         console.log('Found ' + files.length + ' files.');
 
-        const options = {fix: false, formatter: 'json'};
+        const options: object = {fix: false, formatter: 'json'}
         const linter = new tsLinter.Linter(options);
         files.map(file => {
             console.log('Checking: ' + file);
-            const fileContent = fs.readFileSync(file, {encoding: 'utf8'});
-            const configuration = tsLinter.Configuration.findConfiguration(configFile, file).results;
+            const fileContent: string = fs.readFileSync(file, {encoding: 'utf8'});
+            const configuration: string = tsLinter.Configuration.findConfiguration(configFile, file).results;
             linter.lint(file, fileContent, configuration);
         });
+        console.log(linter.getResult());
         return linter.getResult();
     })();
 
-    const result = [];
+    const result: Array<object> = [];
     lintAction.failures.map(failure => {
         result.push({
             file: failure.getFileName(),
@@ -30,7 +31,11 @@ try {
             position: failure.getStartPosition().getLineAndCharacter()
         });
     });
-    core.setOutput('result', result);
+
+    if (result.length) {
+        console.log(result);
+        core.setFailed();
+    }
 } catch (error) {
     core.setFailed(error.message);
 }
