@@ -5,6 +5,7 @@ const tsLinter = require('tslint');
 try {
     const linterAction = (() => {
         const projectFolder = path.dirname(path.resolve(core.getInput('folder')));
+        console.log(projectFolder);
         const configFile = core.getInput('config');
         const rulesFile = core.getInput('rules');
         const options = {fix: false, formatter: 'json'};
