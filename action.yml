@@ -1,9 +1,6 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
 inputs:
-  folder:
-    description: 'Project folder'
-    required: true
   config:
     description: 'Linter config file path'
     required: true

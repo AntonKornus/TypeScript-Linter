@@ -1,16 +1,13 @@
 const core = require('@actions/core');
-const path = require('path');
 const tsLinter = require('tslint');
 
 try {
     const linterAction = (() => {
-        const projectFolder = path.dirname(path.resolve(core.getInput('folder')));
         const configFile = core.getInput('config');
         const rulesFile = core.getInput('rules');
         const options = {fix: false, formatter: 'json'};
 
-        const linterInstance = tsLinter.Linter.createProgram(configFile, projectFolder);
-        console.log(linterInstance.getCurrentDirectory());
+        const linterInstance = tsLinter.Linter.createProgram(configFile);
         const linter = new tsLinter.Linter(options, linterInstance);
         const files = tsLinter.Linter.getFileNames(linterInstance);
         console.log('Found ' + files.length + ' files.');
