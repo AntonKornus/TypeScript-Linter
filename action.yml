@@ -1,15 +1,15 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
 inputs:
-  pattern:
-    description: 'Files pattern to match'
+  folder:
+    description: 'Project folder'
     required: true
   config:
-    description: 'Config file path'
+    description: 'Linter config file path'
     required: true
-outputs:
-  result: # id of output
-    description: 'Linter result'
+  rules:
+    description: 'Linter rules file path'
+    required: true
 runs:
   using: 'node12'
   main: 'index.ts'
