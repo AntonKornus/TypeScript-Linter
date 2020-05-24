@@ -10,7 +10,7 @@ try {
         const files = glob.sync(pattern);
         console.log('Found ' + files.length + ' files.');
 
-        const options = {fix: false, formatter: 'json'}
+        const options = {fix: false, formatter: 'json'};
         const linter = new tsLinter.Linter(options);
         files.map(file => {
             console.log('Checking: ' + file);
