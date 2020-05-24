@@ -15,7 +15,7 @@ try {
         files.map(file => {
             console.log('Checking: ' + file);
             const fileContent: string = fs.readFileSync(file, {encoding: 'utf8'});
-            const configuration: string = tsLinter.Configuration.findConfiguration(configFile, file).results;
+            const configuration: object = tsLinter.Configuration.findConfiguration(configFile, file).results;
             linter.lint(file, fileContent, configuration);
         });
         console.log(linter.getResult());
