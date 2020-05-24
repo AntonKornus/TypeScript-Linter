@@ -7,6 +7,9 @@ inputs:
   rules:
     description: 'Linter rules file path'
     required: true
+  working-directory:
+    description: 'Set your default working directory'
+    required: false
 runs:
   using: 'node12'
   main: 'index.ts'
