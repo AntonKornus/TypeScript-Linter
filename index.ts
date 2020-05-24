@@ -5,7 +5,7 @@ const fs = require('fs');
 
 try {
     const lintAction = (() => {
-        const configFile: object = core.getInput('config');
+        const configFile = core.getInput('config');
         const pattern: string = core.getInput('pattern');
         const files: Array<string> = glob.sync(pattern);
         console.log('Found ' + files.length + ' files.');
