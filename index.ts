@@ -6,23 +6,23 @@ const fs = require('fs');
 try {
     const lintAction = (() => {
         const configFile = core.getInput('config');
-        const pattern: string = core.getInput('pattern');
-        const files: Array<string> = glob.sync(pattern);
+        const pattern = core.getInput('pattern');
+        const files = glob.sync(pattern);
         console.log('Found ' + files.length + ' files.');
 
-        const options: object = {fix: false, formatter: 'json'}
+        const options = {fix: false, formatter: 'json'}
         const linter = new tsLinter.Linter(options);
         files.map(file => {
             console.log('Checking: ' + file);
-            const fileContent: string = fs.readFileSync(file, {encoding: 'utf8'});
-            const configuration: object = tsLinter.Configuration.findConfiguration(configFile, file).results;
+            const fileContent = fs.readFileSync(file, {encoding: 'utf8'});
+            const configuration = tsLinter.Configuration.findConfiguration(configFile, file).results;
             linter.lint(file, fileContent, configuration);
         });
         console.log(linter.getResult());
         return linter.getResult();
     })();
 
-    const result: Array<object> = [];
+    const result = [];
     lintAction.failures.map(failure => {
         result.push({
             file: failure.getFileName(),
