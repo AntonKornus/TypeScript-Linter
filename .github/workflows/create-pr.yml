@@ -18,5 +18,5 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           branch: staging-promotion
-          title: My custom title
+          title: \\[TSL-XX\\] My custom title
           labels: enhancement, question
