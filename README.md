@@ -18,4 +18,5 @@ jobs:
         with:
           config: 'tsconfig.json'
           rules: 'tslint.json'
+          working-directory: ''
 ```
