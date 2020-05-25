@@ -8,6 +8,7 @@ try {
         const rulesFile = core.getInput('rules');
         const options = {fix: false, formatter: 'json'};
 
+        console.log('Starting directory: ' + process.cwd());
         if (projectFolder) {
             process.chdir(projectFolder);
         }
