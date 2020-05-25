@@ -9,10 +9,11 @@ try {
         const rulesFile = core.getInput('rules');
         const options = {fix: false, formatter: 'json'};
 
-        console.log('Starting directory: ' + process.cwd());
         if (projectFolder) {
             const payload = JSON.parse(github.context.payload);
+            console.log(payload);
             process.chdir('/tree/' + payload.tree_id + projectFolder);
+            console.log('New directory: ' + process.cwd());
         }
 
         const linterInstance = tsLinter.Linter.createProgram(configFile);
