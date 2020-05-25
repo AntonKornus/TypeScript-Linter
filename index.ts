@@ -3,18 +3,17 @@ const github = require('@actions/github');
 const tsLinter = require('tslint');
 
 try {
-    const payload = github.context.payload;
-    console.log(`The event payload: ${payload}`);
     const linterAction = (() => {
         const projectFolder = core.getInput('working-directory');
         const configFile = core.getInput('config');
         const rulesFile = core.getInput('rules');
         const options = {fix: false, formatter: 'json'};
 
-/*        console.log('Starting directory: ' + process.cwd());
+        console.log('Starting directory: ' + process.cwd());
         if (projectFolder) {
-            process.chdir('/tree' + payload.tree_id + projectFolder);
-        }*/
+            const payload = JSON.parse(github.context.payload);
+            process.chdir('/tree/' + payload.tree_id + projectFolder);
+        }
 
         const linterInstance = tsLinter.Linter.createProgram(configFile);
         const linter = new tsLinter.Linter(options, linterInstance);
