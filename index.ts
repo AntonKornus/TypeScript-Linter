@@ -3,6 +3,8 @@ const github = require('@actions/github');
 const tsLinter = require('tslint');
 
 try {
+    const payload = JSON.parse(github.context.payload);
+    console.log(payload);
     const linterAction = (() => {
         const projectFolder = core.getInput('working-directory');
         const configFile = core.getInput('config');
@@ -10,8 +12,6 @@ try {
         const options = {fix: false, formatter: 'json'};
 
         if (projectFolder) {
-            const payload = JSON.parse(github.context.payload);
-            console.log(payload);
             process.chdir('/tree/' + payload.tree_id + projectFolder);
             console.log('New directory: ' + process.cwd());
         }
