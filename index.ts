@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const tsLinter = require('tslint');
 
 try {
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
     const linterAction = (() => {
         const projectFolder = core.getInput('working-directory');
