@@ -19,4 +19,4 @@ jobs:
         with:
           branch: staging-promotion
           title: My custom title
-          labels: enhancement
+          labels: enhancement, question
