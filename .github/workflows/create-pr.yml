@@ -18,5 +18,4 @@ jobs:
         uses: peter-evans/create-pull-request@v2
         with:
           branch: staging-promotion
-          title: [TSL-00] Changes by create-pull-request action
-          labels: automerge, else
+          labels: enhancement
