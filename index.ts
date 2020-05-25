@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const tsLinter = require('tslint');
 
 try {
+    console.log(`The event payload: ${payload}`);
     const linterAction = (() => {
         const projectFolder = core.getInput('working-directory');
         const configFile = core.getInput('config');
