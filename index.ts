@@ -6,7 +6,7 @@ const configFile = 'tsconfig.json';
 const rulesFile = 'tslint.json';
 const gitHubToken = core.getInput('token');
 const folder = core.getInput("folder");
-const options = {fix: false, formatter: 'json'}
+const options = {fix: false, formatter: 'json'};
 
 try {
     const linterAction = (() => {
