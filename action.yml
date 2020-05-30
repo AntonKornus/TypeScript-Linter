@@ -1,7 +1,7 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
 inputs:
-  token:
+  GITHUB_TOKEN:
     description: 'GitHub token for actions'
     required: true
   folder:
