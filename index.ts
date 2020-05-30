@@ -1,22 +1,14 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 const tsLinter = require('tslint');
 
 try {
-    const payload = JSON.parse(github.context.payload);
-    console.log(payload);
     const linterAction = (() => {
-        const projectFolder = core.getInput('working-directory');
-        const configFile = core.getInput('config');
-        const rulesFile = core.getInput('rules');
+        const configFile = 'tsconfig.json';
+        const rulesFile = 'tslint.json';
+        const folder = core.getInput('folder');
         const options = {fix: false, formatter: 'json'};
 
-        if (projectFolder) {
-            process.chdir('/tree/' + payload.tree_id + projectFolder);
-            console.log('New directory: ' + process.cwd());
-        }
-
-        const linterInstance = tsLinter.Linter.createProgram(configFile);
+        const linterInstance = tsLinter.Linter.createProgram(configFile, folder);
         const linter = new tsLinter.Linter(options, linterInstance);
         const files = tsLinter.Linter.getFileNames(linterInstance);
         console.log('Found ' + files.length + ' files.');

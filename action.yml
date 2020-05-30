@@ -1,13 +1,7 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
 inputs:
-  config:
-    description: 'Linter config file path'
-    required: true
-  rules:
-    description: 'Linter rules file path'
-    required: true
-  working-directory:
+  folder:
     description: 'Set your default working directory'
     required: false
 runs:

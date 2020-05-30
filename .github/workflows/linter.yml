@@ -10,6 +10,3 @@ jobs:
       - name: Linter action
         id: linter
         uses: AntonKornus/TypeScript-Linter@master
-        with:
-          config: 'tsconfig.json'
-          rules: 'tslint.json'

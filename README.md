@@ -16,7 +16,5 @@ jobs:
         id: linter
         uses: AntonKornus/TypeScript-Linter@master
         with:
-          config: 'tsconfig.json'
-          rules: 'tslint.json'
-          working-directory: ''
+          folder: src # optional
 ```
