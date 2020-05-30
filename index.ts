@@ -10,6 +10,8 @@ const options = {fix: false, formatter: 'json'};
 
 try {
     const linterAction = (() => {
+        const payload = JSON.stringify(github.context.payload, undefined, 2);
+        console.log(`The event payload: ${payload}`);
 
         const linterInstance = tsLinter.Linter.createProgram(configFile, folder);
         const linter = new tsLinter.Linter(options, linterInstance);
@@ -42,8 +44,6 @@ try {
 
         const context = github.context;
         const pull_request_number = context.payload.pull_request.number;
-        const payload = JSON.stringify(github.context.payload, undefined, 2)
-        console.log(`The event payload: ${payload}`);
         const octokit = new github.GitHub(gitHubToken);
         octokit.issues.createComment({
             ...context.repo,
