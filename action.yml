@@ -1,6 +1,9 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
 inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token for actions'
+    required: true
   folder:
     description: 'Set your default working directory'
     required: false
