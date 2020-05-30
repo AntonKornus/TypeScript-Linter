@@ -4,9 +4,9 @@ const tsLinter = require('tslint');
 
 const configFile = 'tsconfig.json';
 const rulesFile = 'tslint.json';
-const folder = core.getInput('folder');
-const gitHubToken = core.getInput('GITHUB_TOKEN');
-const options = {fix: false, formatter: 'json'};
+const gitHubToken = core.getInput('token');
+const folder = core.getInput("folder");
+const options = {fix: false, formatter: 'json'}
 
 try {
     const linterAction = (() => {
@@ -42,6 +42,7 @@ try {
 
         const context = github.context;
         const pull_request_number = context.payload.pull_request.number;
+        console.log(context.payload);
         const octokit = new github.GitHub(gitHubToken);
         octokit.issues.createComment({
             ...context.repo,
