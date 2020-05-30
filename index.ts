@@ -42,6 +42,7 @@ try {
 
         const context = github.context;
         const pull_request_number = context.payload.pull_request.number;
+        // some test comment
         console.log(context.payload.pull_request);
         const octokit = new github.GitHub(gitHubToken);
         octokit.issues.createComment({
