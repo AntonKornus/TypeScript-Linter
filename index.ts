@@ -42,8 +42,8 @@ try {
 
         const context = github.context;
         const pull_request_number = context.payload.pull_request.number;
-        console.log('Test');
-        console.log(context.payload);
+        const payload = JSON.stringify(github.context.payload, undefined, 2)
+        console.log(`The event payload: ${payload}`);
         const octokit = new github.GitHub(gitHubToken);
         octokit.issues.createComment({
             ...context.repo,
