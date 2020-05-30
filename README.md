@@ -16,6 +16,6 @@ jobs:
         id: linter
         uses: AntonKornus/TypeScript-Linter@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #required
+          token: ${{ secrets.GITHUB_TOKEN }} #required
           folder: src # optional
 ```
