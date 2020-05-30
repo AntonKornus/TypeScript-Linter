@@ -42,8 +42,9 @@ try {
         console.log('Total amount of errors: ' + linterAction.errorCount);
         console.log(result);
 
+        // Test
         const context = github.context;
-        const pull_request_number = context.payload.pull_request.number;
+        const pull_request_number = github.context.payload.pull_request.number;
         const octokit = new github.GitHub(gitHubToken);
         octokit.issues.createComment({
             ...context.repo,
