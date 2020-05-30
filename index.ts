@@ -4,9 +4,9 @@ const tsLinter = require('tslint');
 
 const configFile = 'tsconfig.json';
 const rulesFile = 'tslint.json';
-const folder = core.getInput('folder');
+const folder = core.getInput("folder");
 const gitHubToken = core.getInput('GITHUB_TOKEN');
-const options = {fix: false, formatter: 'json'};
+const options = {fix: false, formatter: 'json'}
 
 try {
     const linterAction = (() => {
