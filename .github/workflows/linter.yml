@@ -8,5 +8,3 @@ jobs:
       - name: Linter action
         id: linter
         uses: AntonKornus/TypeScript-Linter@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
