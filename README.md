@@ -10,8 +10,8 @@ jobs:
     name: Linter action
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+      - name: Prepare
+        run: npm ci
       - name: Linter action
         id: linter
         uses: AntonKornus/TypeScript-Linter@master
