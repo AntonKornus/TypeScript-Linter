@@ -9,4 +9,4 @@ jobs:
         run: npm ci
       - name: Linter action
         id: linter
-        uses: AntonKornus/TypeScript-Linter@master
+        uses: AntonKornus/TypeScript-Linter@1.0.0
