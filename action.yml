@@ -1,8 +1,5 @@
 name: 'TypeScript Linter Action'
 description: 'Action for typescript check'
-branding:
-  icon: check-circle
-  color: white
 inputs:
   folder:
     description: 'Set your default working directory'
