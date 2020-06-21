@@ -21,7 +21,7 @@ jobs:
         run: npm ci # you can use any custom command, just be sure it includes npm install
       - name: Linter action
         id: linter
-        uses: AntonKornus/TypeScript-Linter@master
+        uses: AntonKornus/TypeScript-Linter@1.0.0
         with:
           folder: src # optional
 ```
