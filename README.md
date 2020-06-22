@@ -1,5 +1,5 @@
 # TypeScript-Linter
-This action checks TypeScript files according to your rules.
+This action checks TypeScript files according to your rules using [TSLint](https://palantir.github.io/tslint)
 
 Was made as simple as possible to get maximum stability and speed.
 
