@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/AntonKornus/TypeScript-Linter#readme",
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^2.2.0",
     "tslint": "^6.1.2",
     "typescript": "^3.9.3"
